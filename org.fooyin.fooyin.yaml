@@ -66,6 +66,7 @@ modules:
           type: anitya
           project-id: 370439
           stable-only: true
+          tag-template: v$version
   - name: fooyin
     buildsystem: cmake-ninja
     builddir: true
@@ -74,14 +75,10 @@ modules:
     sources:
       - type: git
         url: https://github.com/ludouzi/fooyin
-        tag: 'v0.4.2'
-        commit: a7516f2a3ed3cbfe7fdb4f15a2567bb3ffeb8ae1
+        tag: 'v0.4.3'
+        commit: 066de1bbd79d79658fbd1fb4f3d00f1a483bf10e
         x-checker-data:
           type: anitya
           project-id: 372406
           stable-only: true
-      - type: patch
-        path: '0001-Add-option-to-disable-ALSA-with-PipeWire-as-a-defaul.patch'
-      - type: patch
-        path: '0001-Use-the-standard-reverse-DNS-schema-everywhere.patch'
-
+          tag-template: v$version
