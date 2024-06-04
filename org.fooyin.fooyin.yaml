@@ -9,30 +9,30 @@ add-extensions:
     version: '23.08'
     add-ld-path: .
 finish-args:
-  - '--device=dri'
-  - '--filesystem=xdg-download'
-  - '--filesystem=xdg-music'
-  - '--filesystem=xdg-run/pipewire-0'
-  - '--filesystem=/run/media'
-  - '--own-name=org.mpris.MediaPlayer2.fooyin'
-  - '--share=ipc'
-  - '--share=network'
-  - '--socket=fallback-x11'
-  - '--socket=pulseaudio'
-  - '--socket=wayland'
-  - '--system-talk-name=org.freedesktop.UDisks2'
+  - --device=dri
+  - --filesystem=xdg-download
+  - --filesystem=xdg-music
+  - --filesystem=xdg-run/pipewire-0
+  - --filesystem=/run/media
+  - --own-name=org.mpris.MediaPlayer2.fooyin
+  - --share=ipc
+  - --share=network
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --socket=wayland
+  - --system-talk-name=org.freedesktop.UDisks2
 cleanup:
   - '*.a'
   - '*.la'
-  - '/include'
-  - '/lib/cmake'
-  - '/lib/alsa-lib/pkgconfig'
-  - '/lib/pkgconfig'
-  - '/mkspecs'
-  - '/share/aclocal'
-  - '/share/doc/KDSingleApplication-qt6'
+  - /include
+  - /lib/cmake
+  - /lib/alsa-lib/pkgconfig
+  - /lib/pkgconfig
+  - /mkspecs
+  - /share/aclocal
+  - /share/doc/KDSingleApplication-qt6
 cleanup-commands:
-  - 'mkdir -p ${FLATPAK_DEST}/lib/ffmpeg'
+  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 modules:
   - name: alsa-lib
     buildsystem: simple
@@ -54,13 +54,13 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
-      - '-DKDSingleApplication_QT6=ON'
-      - '-DKDSingleApplication_EXAMPLES=OFF'
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DKDSingleApplication_QT6=ON
+      - -DKDSingleApplication_EXAMPLES=OFF
     sources:
       - type: git
         url: https://github.com/KDAB/KDSingleApplication
-        tag: 'v1.1.0'
+        tag: v1.1.0
         commit: cb0c664b40d3b31bad30aa3521eff603162ed0bd
         x-checker-data:
           type: anitya
@@ -71,12 +71,12 @@ modules:
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
-      - '-DCMAKE_BUILD_TYPE=Release'
+      - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: git
         url: https://github.com/ludouzi/fooyin
-        tag: 'v0.4.3'
-        commit: 066de1bbd79d79658fbd1fb4f3d00f1a483bf10e
+        tag: v0.4.4
+        commit: 601e665ca17e36e1cb6cde06e89db85bbc9723a0
         x-checker-data:
           type: anitya
           project-id: 372406
