@@ -75,8 +75,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/ludouzi/fooyin
-        tag: v0.4.4
-        commit: 601e665ca17e36e1cb6cde06e89db85bbc9723a0
+        tag: v0.4.5
+        commit: 14e8e8cd47ff83f5b1610630eb68767fc5c1b5a7
         x-checker-data:
           type: anitya
           project-id: 372406
