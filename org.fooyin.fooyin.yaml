@@ -74,7 +74,7 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: git
-        url: https://github.com/ludouzi/fooyin
+        url: https://github.com/fooyin/fooyin
         tag: v0.4.5
         commit: 14e8e8cd47ff83f5b1610630eb68767fc5c1b5a7
         x-checker-data:
