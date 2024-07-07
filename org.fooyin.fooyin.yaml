@@ -75,8 +75,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/fooyin/fooyin
-        tag: v0.5.1
-        commit: 2489b3d1ed099e04873f66fcdb2fd9d5895e7557
+        tag: v0.5.2
+        commit: 737c80949d27576f358f1dfa69d17e655b6abcb7
         x-checker-data:
           type: anitya
           project-id: 372406
