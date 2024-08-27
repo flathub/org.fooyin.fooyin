@@ -50,6 +50,7 @@ modules:
           project-id: 38
           stable-only: true
           url-template: https://www.alsa-project.org/files/pub/lib/alsa-lib-$version.tar.bz2
+
   - name: KDSingleApplication
     buildsystem: cmake-ninja
     builddir: true
@@ -67,6 +68,81 @@ modules:
           project-id: 370439
           stable-only: true
           tag-template: v$version
+
+  - name: libsndfile
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_SHARED_LIBS=ON
+      - -DENABLE_EXTERNAL_LIBS=NO
+      - -DENABLE_CPACK=NO
+      - -DBUILD_PROGRAMS=OFF
+      - -DBUILD_EXAMPLES=OFF
+    sources:
+      - type: git
+        url: https://github.com/libsndfile/libsndfile
+        tag: 1.2.2
+        commit: 72f6af15e8f85157bd622ed45b979025828b7001
+        x-checker-data:
+          type: anitya
+          project-id: 13277
+          stable-only: true
+          url-template: $version
+
+  - name: libopenmpt
+    config-opts:
+      - --disable-examples
+      - --disable-openmpt123
+      - --disable-static
+      - --disable-tests
+      - --without-portaudio
+      - --without-portaudiocpp
+    cleanup:
+      - /include
+      - '*.la'
+      - '*.so'
+      - /lib/pkgconfig
+      - /share/doc
+    sources:
+      - type: archive
+        url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.7.9+release.autotools.tar.gz
+        sha256: 0386e918d75d797e79d5b14edd0847165d8b359e9811ef57652c0a356a2dfcf4
+        x-checker-data:
+          type: anitya
+          project-id: 141468
+          stable-only: true
+          url-template: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-$version+release.autotools.tar.gz
+
+  - name: game-music-emu
+    buildsystem: cmake-ninja
+    cleanup:
+      - /include
+      - /lib/*.so
+      - /lib/pkgconfig
+    sources:
+      - type: git
+        url: https://github.com/libgme/game-music-emu
+        tag: 0.6.3
+        commit: e76bdc0cb916e79aa540290e6edd0c445879d3ba
+        x-checker-data:
+          type: anitya
+          project-id: 866
+          stable-only: true
+          url-template: $version
+
+  - name: libarchive
+    config-opts:
+      - --without-xml2
+    sources:
+      - type: archive
+        url: https://www.libarchive.org/downloads/libarchive-3.7.4.tar.gz
+        sha256: 7875d49596286055b52439ed42f044bd8ad426aa4cc5aabd96bfe7abb971d5e8
+        x-checker-data:
+          type: anitya
+          project-id: 1558
+          stable-only: true
+          url-template: https://www.libarchive.org/downloads/libarchive-$version.tar.gz
+
   - name: fooyin
     buildsystem: cmake-ninja
     builddir: true
@@ -75,8 +151,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/fooyin/fooyin
-        tag: v0.5.3
-        commit: faf2cef92d990201d758eeadc3c046488711b6ae
+        tag: v0.6.0
+        commit: a5b389b26b0d0b6bb71f3de580cb643e3aebd85e
         x-checker-data:
           type: anitya
           project-id: 372406
