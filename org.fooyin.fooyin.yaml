@@ -135,8 +135,8 @@ modules:
       - --without-xml2
     sources:
       - type: archive
-        url: https://www.libarchive.org/downloads/libarchive-3.7.6.tar.gz
-        sha256: b4071807367b15b72777c2eaac80f42c8ea2d20212ab279514a19fe1f6f96ef4
+        url: https://www.libarchive.org/downloads/libarchive-3.7.7.tar.gz
+        sha256: 4cc540a3e9a1eebdefa1045d2e4184831100667e6d7d5b315bb1cbc951f8ddff
         x-checker-data:
           type: anitya
           project-id: 1558
