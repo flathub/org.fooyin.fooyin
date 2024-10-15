@@ -143,6 +143,21 @@ modules:
           stable-only: true
           url-template: https://www.libarchive.org/downloads/libarchive-$version.tar.gz
 
+  - name: libebur128
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+    sources:
+      - type: git
+        url: https://github.com/jiixyj/libebur128.git
+        tag: v1.2.6
+        commit: 67b33abe1558160ed76ada1322329b0e9e058b02
+        x-checker-data:
+          type: anitya
+          project-id: 7316
+          stable-only: true
+          url-template: v$version
+
   - name: fooyin
     buildsystem: cmake-ninja
     builddir: true
