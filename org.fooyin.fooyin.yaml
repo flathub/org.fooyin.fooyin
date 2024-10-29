@@ -21,6 +21,7 @@ finish-args:
   - --socket=pulseaudio
   - --socket=wayland
   - --system-talk-name=org.freedesktop.UDisks2
+  - --talk-name=org.kde.StatusNotifierWatcher # Needed for tray icon
 cleanup:
   - '*.a'
   - '*.la'
