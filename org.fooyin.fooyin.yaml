@@ -1,12 +1,12 @@
 app-id: org.fooyin.fooyin
 runtime: org.kde.Platform
-runtime-version: '6.7'
+runtime-version: '6.8'
 sdk: org.kde.Sdk
 command: fooyin
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     directory: lib/ffmpeg
-    version: '23.08'
+    version: '24.08'
     add-ld-path: .
 finish-args:
   - --device=dri
@@ -35,23 +35,6 @@ cleanup:
 cleanup-commands:
   - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 modules:
-  - name: alsa-lib
-    buildsystem: simple
-    builddir: true
-    build-commands:
-      - ./configure --prefix=${FLATPAK_DEST} --libdir=${FLATPAK_DEST}/lib/alsa-lib
-      - make -j$FLATPAK_BUILDER_N_JOBS
-      - make install
-    sources:
-      - type: archive
-        url: https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.13.tar.bz2
-        sha256: 8c4ff37553cbe89618e187e4c779f71a9bb2a8b27b91f87ed40987cc9233d8f6
-        x-checker-data:
-          type: anitya
-          project-id: 38
-          stable-only: true
-          url-template: https://www.alsa-project.org/files/pub/lib/alsa-lib-$version.tar.bz2
-
   - name: KDSingleApplication
     buildsystem: cmake-ninja
     builddir: true
@@ -65,30 +48,8 @@ modules:
         tag: v1.1.0
         commit: cb0c664b40d3b31bad30aa3521eff603162ed0bd
         x-checker-data:
-          type: anitya
-          project-id: 370439
-          stable-only: true
-          tag-template: v$version
-
-  - name: libsndfile
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_SHARED_LIBS=ON
-      - -DENABLE_EXTERNAL_LIBS=NO
-      - -DENABLE_CPACK=NO
-      - -DBUILD_PROGRAMS=OFF
-      - -DBUILD_EXAMPLES=OFF
-    sources:
-      - type: git
-        url: https://github.com/libsndfile/libsndfile
-        tag: 1.2.2
-        commit: 72f6af15e8f85157bd622ed45b979025828b7001
-        x-checker-data:
-          type: anitya
-          project-id: 13277
-          stable-only: true
-          url-template: $version
+          type: git
+          tag-pattern: v([\d.]+)
 
   - name: libopenmpt
     config-opts:
@@ -126,23 +87,8 @@ modules:
         tag: 0.6.3
         commit: e76bdc0cb916e79aa540290e6edd0c445879d3ba
         x-checker-data:
-          type: anitya
-          project-id: 866
-          stable-only: true
-          url-template: $version
-
-  - name: libarchive
-    config-opts:
-      - --without-xml2
-    sources:
-      - type: archive
-        url: https://www.libarchive.org/downloads/libarchive-3.7.7.tar.gz
-        sha256: 4cc540a3e9a1eebdefa1045d2e4184831100667e6d7d5b315bb1cbc951f8ddff
-        x-checker-data:
-          type: anitya
-          project-id: 1558
-          stable-only: true
-          url-template: https://www.libarchive.org/downloads/libarchive-$version.tar.gz
+          type: git
+          tag-patern: ([\d.]+)
 
   - name: libebur128
     buildsystem: cmake-ninja
@@ -154,10 +100,8 @@ modules:
         tag: v1.2.6
         commit: 67b33abe1558160ed76ada1322329b0e9e058b02
         x-checker-data:
-          type: anitya
-          project-id: 7316
-          stable-only: true
-          url-template: v$version
+          type: git
+          tag-pattern: v([\d.]+)
 
   - name: fooyin
     buildsystem: cmake-ninja
@@ -170,7 +114,5 @@ modules:
         tag: v0.8.1
         commit: 4543d1d54a178320499169af9f49d49d5eb9e591
         x-checker-data:
-          type: anitya
-          project-id: 372406
-          stable-only: true
-          tag-template: v$version
+          type: git
+          tag-pattern: v([\d.]+)
