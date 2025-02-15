@@ -84,8 +84,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/libgme/game-music-emu
-        tag: 0.6.3
-        commit: e76bdc0cb916e79aa540290e6edd0c445879d3ba
+        tag: 0.6.4
+        commit: f0d9517c5c3e0b712f553baa62e213336587d52e
         x-checker-data:
           type: git
           tag-patern: ([\d.]+)
