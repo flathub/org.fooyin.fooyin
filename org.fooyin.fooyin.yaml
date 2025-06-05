@@ -1,6 +1,6 @@
 app-id: org.fooyin.fooyin
 runtime: org.kde.Platform
-runtime-version: '6.8'
+runtime-version: '6.9'
 sdk: org.kde.Sdk
 command: fooyin
 add-extensions:
@@ -40,11 +40,10 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
-      - -DKDSingleApplication_QT6=ON
       - -DKDSingleApplication_EXAMPLES=OFF
     sources:
       - type: git
-        url: https://github.com/KDAB/KDSingleApplication
+        url: https://github.com/KDAB/KDSingleApplication.git
         tag: v1.2.0
         commit: 3186a158f8e6565e89f5983b4028c892737844ff
         x-checker-data:
@@ -67,8 +66,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.7.13+release.autotools.tar.gz
-        sha256: dcd7cde4f9c498eb496c4556e1c1b81353e2a74747e8270a42565117ea42e1f1
+        url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.8.0+release.autotools.tar.gz
+        sha256: 553ee9c63c4b3cbc9b664d5bc31d8bc4eeb345fad8809f03cbf93147a108ab32
         x-checker-data:
           type: anitya
           project-id: 141468
@@ -83,7 +82,7 @@ modules:
       - /lib/pkgconfig
     sources:
       - type: git
-        url: https://github.com/libgme/game-music-emu
+        url: https://github.com/libgme/game-music-emu.git
         tag: 0.6.4
         commit: f0d9517c5c3e0b712f553baa62e213336587d52e
         x-checker-data:
@@ -110,9 +109,13 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: git
-        url: https://github.com/fooyin/fooyin
+        url: https://github.com/fooyin/fooyin.git
         tag: v0.8.1
         commit: 4543d1d54a178320499169af9f49d49d5eb9e591
         x-checker-data:
           type: git
           tag-pattern: v([\d.]+)
+      - type: patch # upstream commit necessary for building, can be removed when version > 0.8.1 gets released
+        path: e44e08abb33f01fe85cc896170c55dbf732ffcc9.patch
+      - type: patch # upstream commit necessary for building, can be removed when version > 0.8.1 gets released
+        path: 7e1463b9f3410e9c531e53cd2227e5cef5d2d6c9.patch
