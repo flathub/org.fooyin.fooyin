@@ -1,13 +1,8 @@
 app-id: org.fooyin.fooyin
 runtime: org.kde.Platform
-runtime-version: '6.9'
+runtime-version: '6.10'
 sdk: org.kde.Sdk
 command: fooyin
-add-extensions:
-  org.freedesktop.Platform.ffmpeg-full:
-    directory: lib/ffmpeg
-    version: '24.08'
-    add-ld-path: .
 finish-args:
   - --device=dri
   - --filesystem=xdg-download
@@ -32,8 +27,7 @@ cleanup:
   - /mkspecs
   - /share/aclocal
   - /share/doc/KDSingleApplication-qt6
-cleanup-commands:
-  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
+
 modules:
   - name: KDSingleApplication
     buildsystem: cmake-ninja
@@ -93,6 +87,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     sources:
       - type: git
         url: https://github.com/jiixyj/libebur128.git
@@ -115,3 +110,5 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: v([\d.]+)
+      - type: patch
+        path: fix-Qt-6101.patch
