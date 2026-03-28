@@ -60,8 +60,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.8.5+release.autotools.tar.gz
-        sha256: f680aeabb3f84c37169dad87f15ed83f29a6ebbc7f689f912d4dabecff0e3324
+        url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.8.6+release.autotools.tar.gz
+        sha256: caa2fa959e389f4374d9e2df3af5c633452c12dd80442cba2e89cb7ff2b93c5b
         x-checker-data:
           type: anitya
           project-id: 141468
@@ -105,8 +105,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/fooyin/fooyin.git
-        tag: v0.9.2
-        commit: 70518525416f20033fcf1b20a9c3f9ebdd8e9ea1
+        tag: v0.10.1
+        commit: b5a336ec59cba27b7e6fde6e503238d9b3a707bb
         x-checker-data:
           type: git
           tag-pattern: v([\d.]+)
