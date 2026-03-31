@@ -17,6 +17,7 @@ finish-args:
   - --socket=wayland
   - --system-talk-name=org.freedesktop.UDisks2
   - --talk-name=org.kde.StatusNotifierWatcher # Needed for tray icon
+  - --talk-name=org.freedesktop.Notifications # Needed for the notify plugin
 cleanup:
   - '*.a'
   - '*.la'
@@ -146,8 +147,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/fooyin/fooyin.git
-        tag: v0.10.1
-        commit: b5a336ec59cba27b7e6fde6e503238d9b3a707bb
+        tag: v0.10.2
+        commit: 4c1c513545059d412717bc2b788b5b605459a053
         x-checker-data:
           type: git
           tag-pattern: v([\d.]+)
