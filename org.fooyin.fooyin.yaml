@@ -17,7 +17,6 @@ finish-args:
   - --socket=wayland
   - --system-talk-name=org.freedesktop.UDisks2
   - --talk-name=org.kde.StatusNotifierWatcher # Needed for tray icon
-  - --talk-name=org.freedesktop.Notifications # Needed for the notify plugin
 cleanup:
   - '*.a'
   - '*.la'
@@ -144,6 +143,7 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DPLUGIN_SELECTION=-notify
     sources:
       - type: git
         url: https://github.com/fooyin/fooyin.git
