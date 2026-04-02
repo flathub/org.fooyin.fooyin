@@ -143,12 +143,11 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
-      - -DPLUGIN_SELECTION=-notify
     sources:
       - type: git
         url: https://github.com/fooyin/fooyin.git
-        tag: v0.10.2
-        commit: 4c1c513545059d412717bc2b788b5b605459a053
+        tag: v0.10.3
+        commit: 48c34cd8f56903110f45ef1ee42df28a5bb74e6e
         x-checker-data:
           type: git
           tag-pattern: v([\d.]+)
