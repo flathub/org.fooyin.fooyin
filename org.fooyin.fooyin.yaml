@@ -7,7 +7,7 @@ finish-args:
   - --device=dri
   - --filesystem=xdg-download
   - --filesystem=xdg-music
-  - --filesystem=xdg-run/pipewire-0
+  - --filesystem=xdg-run/pipewire-0:ro
   - --filesystem=/run/media
   - --own-name=org.mpris.MediaPlayer2.fooyin
   - --share=ipc
