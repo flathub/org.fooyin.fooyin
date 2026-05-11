@@ -2,12 +2,14 @@ app-id: org.fooyin.fooyin
 runtime: org.kde.Platform
 runtime-version: '6.10'
 sdk: org.kde.Sdk
-command: fooyin
+command: fooyin-wrapper
 finish-args:
   - --device=dri
   - --filesystem=xdg-download
   - --filesystem=xdg-music
   - --filesystem=xdg-run/pipewire-0:ro
+  - --filesystem=xdg-run/discord-ipc-0 # Needed for Discord RPC
+  - --filesystem=xdg-run/app/com.discordapp.Discord:create # Needed for Discord Flatpak RPC
   - --filesystem=/run/media
   - --own-name=org.mpris.MediaPlayer2.fooyin
   - --share=ipc
@@ -136,3 +138,13 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: v([\d.]+)
+
+  - name: wrapper
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 fooyin-wrapper /app/bin/fooyin-wrapper
+      - desktop-file-edit --set-key=Exec --set-value='/app/bin/fooyin-wrapper %F'
+        /app/share/applications/org.fooyin.fooyin.desktop
+    sources:
+      - type: file
+        path: fooyin-wrapper
