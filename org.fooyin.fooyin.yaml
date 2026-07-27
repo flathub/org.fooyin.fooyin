@@ -133,8 +133,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/fooyin/fooyin.git
-        tag: v0.11.1
-        commit: 92e5764b2c909e7d285782b2c666407e31752c3f
+        tag: v0.12.0
+        commit: 485c0d98e8f6ff41bae88b5d68b01a868342d1cd
         x-checker-data:
           type: git
           tag-pattern: v([\d.]+)
