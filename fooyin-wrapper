@@ -7,7 +7,7 @@ discord_flatpak_ids=(
 )
 
 for i in {0..9}; do
-    socket="$XDG_RUNTIME_DIR/discord-ipc-$i"
+    socket="/tmp/discord-ipc-$i"
 
     if [ ! -S "$socket" ]; then
         for id in "${discord_flatpak_ids[@]}"; do
