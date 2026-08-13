@@ -48,7 +48,7 @@ modules:
         commit: 9e23d10f9fd2a6a2f33b10912dd8dc7153258995
         x-checker-data:
           type: git
-          tag-patern: ([\d.]+)
+          tag-pattern: ^([\d.]+)$
 
   - name: libebur128
     buildsystem: cmake-ninja
