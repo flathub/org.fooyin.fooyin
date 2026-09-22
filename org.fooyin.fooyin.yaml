@@ -4,7 +4,7 @@ runtime-version: '6.11'
 sdk: org.kde.Sdk
 command: fooyin-wrapper
 finish-args:
-  - --device=dri
+  - --device=all # Needed for access to CD/DVD drives
   - --filesystem=xdg-download
   - --filesystem=xdg-music
   - --filesystem=xdg-run/pipewire-0:ro
@@ -32,6 +32,7 @@ cleanup:
 
 modules:
   - kdsingleapplication.json
+  - libcdio.json
   - libopenmpt.json
   - projectm.json
 
@@ -98,8 +99,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/fooyin/fooyin.git
-        tag: v0.12.6
-        commit: 6ba72ae1b00007251d4c09210e4c6ad4e7b867b8
+        tag: v0.13.0
+        commit: 31d41ec7fb38c4d2076737c6afc1ae1fb244d738
         x-checker-data:
           type: git
           tag-pattern: v([\d.]+)
