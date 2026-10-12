@@ -16,8 +16,8 @@
     {
       "type": "git",
       "url": "https://github.com/projectM-visualizer/projectm",
-      "tag": "v4.1.7",
-      "commit": "e0b0a967f0ffd7d332106c366668ed271718472b",
+      "tag": "v4.1.8",
+      "commit": "4967dc003e5206d7df3ff447287f7609c47d2343",
       "x-checker-data": {
         "type": "git",
         "tag-pattern": "^v([\\d.]+)$"
